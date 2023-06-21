@@ -1,6 +1,6 @@
 <?php
 /**
- * VWS Oklahoma Lawyer functions and definitions
+ * VWS Bootstrap Starter functions and definitions
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
