@@ -1,0 +1,34 @@
+/* Responsive */
+/* Max Width */
+//@media (max-width: 1399.98px) {}
+//@media (max-width: 1199.98px) {}
+//@media (max-width: 991.98px) {}
+@media (max-width: 767.98px) {
+	/* Place the timelime to the left */
+	.timeline::after {
+		left: 31px;
+	}
+
+	/* Full-width containers */
+	.milestone {
+		width: 100%;
+		padding-left: 70px;
+		padding-right: 25px;
+
+		&.left::after, &.right::after {
+			left: 6px;
+		}
+
+		&.right {
+			left: 0%;
+		}
+
+		&::before {
+			left: 60px;
+			border-style: solid;
+			border-width: 10px 10px 10px 0;
+			border-color: transparent;
+		}
+	}
+}
+//@media (max-width: 575.98px) {}

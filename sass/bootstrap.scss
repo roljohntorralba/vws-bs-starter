@@ -1,0 +1,282 @@
+// Variable overrides first
+$primary: #0c3e5e;
+$secondary: #0B1F35;
+$success: #198754;
+$info: #b4ccdd;
+$info-alt: #567991;
+$warning: #ffc107;
+$danger: #dc3545;
+$light: #f8f9fa;
+$dark: #212529;
+
+$enable-shadows: true;
+$prefix: "vws-";
+$display-font-weight: 700;
+$btn-font-weight: 700;
+
+$vws-btn-padding-y-xl: 1rem;
+$vws-btn-padding-x-xl: 2rem;
+$vws-btn-font-size-xl: 1.625rem;
+
+$utilities: (
+	"backdrop-filter": (
+		property: backdrop-filter,
+		class: bg,
+		values: (
+			blur: blur(12px),
+			sharp: blur(0),
+		)
+	),
+	"opacity": (
+		property: opacity,
+		values: (
+			0: 0,
+			25: .25,
+			50: .5,
+			75: .75,
+			85: .85,
+			90: .90,
+			100: 1,
+		)
+	),
+	"bg-opacity": (
+		css-var: true,
+		class: bg-opacity,
+		values: (
+			0: 0,
+			25: .25,
+			50: .5,
+			75: .75,
+			85: .85,
+			90: .90,
+			100: 1,
+		)
+	)
+);
+
+$spacer: 1rem;
+$spacers: (
+	0: 0,
+	1: $spacer * .25,
+	2: $spacer * .5,
+	3: $spacer,
+	4: $spacer * 1.5,
+	5: $spacer * 3,
+	6: $spacer * 3.5,
+	7: $spacer * 4,
+	8: $spacer * 4.5,
+	9: $spacer * 5,
+	10: $spacer * 6,
+);
+
+$theme-colors: (
+	"primary": $primary,
+	"secondary": $secondary,
+	"success": $success,
+	"info": $info,
+	"info-alt": $info-alt,
+	"warning": $warning,
+	"danger": $danger,
+	"light": $light,
+	"dark": $dark
+);
+
+// Then import Bootstrap
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+
+/*--------------------------------------------------------------
+# FROM UNDERSCORES
+--------------------------------------------------------------*/
+@import "components/components";
+@import "utilities/accessibility";
+@import "utilities/alignments";
+
+
+/*--------------------------------------------------------------
+# Overwrites and Global styles
+--------------------------------------------------------------*/
+ul, ol {
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+
+@include media-breakpoint-down(md) {
+	.container, .container-fluid, .container-xxl, .container-xl, .container-lg, .container-md, .container-sm {
+		--vws-gutter-x: 3rem;
+		padding-right: calc(var(--vws-gutter-x)*.5);
+		padding-left: calc(var(--vws-gutter-x)*.5);
+	}
+}
+
+
+.btn-xl {
+	padding: $btn-padding-y-lg $btn-padding-x-lg;
+	font-size: $btn-font-size-lg;
+}
+@include media-breakpoint-up(md) {
+	.btn-xl {
+		padding: $vws-btn-padding-y-xl $vws-btn-padding-x-xl;
+		font-size: $vws-btn-font-size-xl;
+	}
+}
+
+.fs-45 {
+	font-size: 1.125rem;
+}
+
+.text-bg-dark,
+.text-bg-primary,
+.text-bg-secondary,
+.bg-dark,
+.bg-primary,
+.bg-secondary {
+	a:not(.btn):not(.badge):not([class^="text-"]):not([class*=" text-"]):not([class^="link-"]):not([class*=" link-"]) {
+		@extend .text-reset;
+		@extend .text-decoration-none;
+
+		&:hover {
+			@extend .text-decoration-underline;
+		}
+	}
+}
+
+.styled-heading {
+	padding-bottom: 16px;
+	margin-bottom: 32px;
+	position: relative;
+	z-index: 2;
+
+	&::after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100px;
+		height: 4px;
+		background: $warning;
+	}
+}
+
+.navbar-nav .dropdown-menu {
+	min-width: 300px;
+	.dropdown-item {
+		@extend .text-wrap;
+	}
+}
+
+.styled-heading-center::after {
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+// Site Footer
+.footer-widgets {
+	ol, ul {
+		@extend .list-unstyled;
+		@extend .lh-sm;
+
+		a {
+			@extend .d-inline-block;
+			@extend .mb-2;
+		}
+	}
+}
+
+#colophon {
+	a:not(.btn):not(.badge):not(.text-decoration-none) {
+		@extend .text-reset;
+		@extend .text-decoration-none;
+
+		&:hover {
+			@extend .text-decoration-underline;
+		}
+	}
+}
+
+// When logged in.
+@include media-breakpoint-up(md) {
+	.admin-bar {
+		.site-header {
+			top: 2rem;
+		}
+	}
+}
+
+p:last-of-type, p:last-child, p:empty {
+	margin-bottom: 0;
+}
+
+// ---- END GLOBAL STYLES ----
+
+// Breadcrumb - RankMath SEO
+.rank-math-breadcrumb {
+	@extend .text-muted;
+
+	p {
+		margin: 0;
+	}
+
+	a, .separator {
+		@extend .text-reset;
+		@extend .text-decoration-none;
+	}
+
+	.last {
+		@extend .fw-semibold;
+	}
+}
+
+// Single table styles
+.single, .page {
+	#primary > article {
+		.entry-content {
+			table {
+				@extend .table;
+			}
+		}
+	}
+}
+
+// Redesign Default WP Widgets
+#secondary .widget_recent_entries {
+	> ul, > ol {
+		@extend .list-group;
+
+		li {
+			@extend .list-group-item;
+			@extend .list-group-item-action;
+
+			a {
+				@extend .fw-semibold;
+				@extend .d-block;
+				@extend .stretched-link;
+				@extend .text-decoration-none;
+			}
+
+			.post-date {
+				@extend .small;
+				@extend .text-muted;
+			}
+		}
+	}
+}
+
+// Pagination
+.posts-navigation {
+	.nav-links {
+		@extend .my-4;
+		@extend .hstack;
+		@extend .justify-content-center;
+		@extend .gap-2;
+		a {
+			@extend .btn;
+			@extend .btn-info;
+		}
+	}
+}
+
+.card-icon {
+	width: 80px;
+	margin-top: -40px;
+}
