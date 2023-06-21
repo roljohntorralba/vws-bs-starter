@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package VWS_Oklahoma_Lawyer
+ * @package VWS_Bootstrap_Starter
  */
 
 if (!defined('_S_VERSION')) {

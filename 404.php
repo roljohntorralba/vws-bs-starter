@@ -4,7 +4,7 @@
  *
  * @link https://codex.wordpress.org/Creating_an_Error_404_Page
  *
- * @package VWS_Oklahoma_Lawyer
+ * @package VWS_Bootstrap_Starter
  */
 
 get_header();

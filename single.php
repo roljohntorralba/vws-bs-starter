@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
  *
- * @package VWS_Oklahoma_Lawyer
+ * @package VWS_Bootstrap_Starter
  */
 
 get_header();

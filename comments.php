@@ -7,7 +7,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package VWS_Oklahoma_Lawyer
+ * @package VWS_Bootstrap_Starter
  */
 
 /*
