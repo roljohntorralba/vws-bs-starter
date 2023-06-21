@@ -290,4 +290,4 @@ require get_template_directory() . '/inc/acf-settings.php';
 /**
  * Load Custom Post Types
  */
-require get_template_directory() . '/inc/custom-post-types.php';
+//require get_template_directory() . '/inc/custom-post-types.php';
