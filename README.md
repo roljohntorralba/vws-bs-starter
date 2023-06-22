@@ -29,7 +29,7 @@ WordPress block editor is disabled by default. You can re-enable it by deleting 
 
 ## For Non-Developers
 
-Once you run `npm install` do not upload `node_modules` on your website.
+Once you run `npm install` do not upload `node_modules` to your website.
 
 ## Credits
 
