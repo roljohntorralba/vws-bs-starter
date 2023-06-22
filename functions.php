@@ -160,51 +160,6 @@ function vws_starter_wp_body_open() {
  */
 add_action('wp_footer', 'vws_starter_wp_footer');
 function vws_starter_wp_footer() {
-    $legal_service = '<script type="application/ld+json" id="legal-service-schema">
-        {
-            "@context": "https://schema.org",
-            "@type": "LegalService",
-            "name": "Hasbrook & Hasbrook",
-            "image": "https://oklahomalawyer.com/wp-content/uploads/2021/03/okl-logo-white@2x.png",
-            "@id": "https://oklahomalawyer.com/#legal",
-            "url": "https://oklahomalawyer.com/",
-            "telephone": "' . get_field('office_phone_number', 'option') . '",
-            "priceRange": "$-$$$",
-            "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "400 N Walker Ave #130",
-                "addressLocality": "Oklahoma City",
-                "addressRegion": "OK",
-                "postalCode": "73102",
-                "addressCountry": "US"
-            },
-            "geo": {
-                "@type": "GeoCoordinates",
-                "latitude": 35.47121449999999,
-                "longitude": -97.5207373
-            },
-            "openingHoursSpecification": {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
-                    "Monday",
-                    "Tuesday",
-                    "Wednesday",
-                    "Thursday",
-                    "Friday",
-                    "Saturday",
-                    "Sunday"
-                ],
-                "opens": "00:00",
-                "closes": "23:59"
-            },
-            "sameAs": [
-                "https://www.facebook.com/HasbrookLaw/",
-                "https://twitter.com/hasbrooklawyers",
-                "https://www.linkedin.com/in/claytonhasbrook",
-                "https://www.youtube.com/user/ClaytonHasbrook/featured"
-            ]
-        }
-    </script>';
     ob_start(); ?>
 
     <script>(function (w,d,s,v,odl){(w[v]=w[v]||{})['odl']=odl;

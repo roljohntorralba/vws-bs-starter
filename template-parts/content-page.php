@@ -12,9 +12,6 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class('mx-auto'); ?>>
     <header class="entry-header mb-4">
         <?php the_title('<h1 class="entry-title display-5 mb-4 styled-heading">', '</h1>'); ?>
-        <?php if(get_field('leading_text')): ?>
-            <div class="lead mb-3"><?php the_field('leading_text') ?></div>
-        <?php endif; ?>
         <?php vws_starter_post_thumbnail('shadow'); ?>
     </header><!-- .entry-header -->
 
