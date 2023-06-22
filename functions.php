@@ -26,18 +26,18 @@ function vws_starter_setup()
     add_theme_support('automatic-feed-links');
 
     /*
-        * Let WordPress manage the document title.
-        * By adding theme support, we declare that this theme does not use a
-        * hard-coded <title> tag in the document head, and expect WordPress to
-        * provide it for us.
-        */
+    * Let WordPress manage the document title.
+    * By adding theme support, we declare that this theme does not use a
+    * hard-coded <title> tag in the document head, and expect WordPress to
+    * provide it for us.
+    */
     add_theme_support('title-tag');
 
     /*
-        * Enable support for Post Thumbnails on posts and pages.
-        *
-        * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
-        */
+    * Enable support for Post Thumbnails on posts and pages.
+    *
+    * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
+    */
     add_theme_support('post-thumbnails');
 
     // This theme uses wp_nav_menu() in one location.
@@ -49,9 +49,9 @@ function vws_starter_setup()
     );
 
     /*
-        * Switch default core markup for search form, comment form, and comments
-        * to output valid HTML5.
-        */
+    * Switch default core markup for search form, comment form, and comments
+    * to output valid HTML5.
+    */
     add_theme_support(
         'html5',
         array(
@@ -69,7 +69,7 @@ function vws_starter_setup()
     add_theme_support('customize-selective-refresh-widgets');
 
     // Disable Gutenberg Widgets Editor
-    remove_theme_support( 'widgets-block-editor' );
+    remove_theme_support('widgets-block-editor');
 
 }
 
@@ -120,25 +120,18 @@ function vws_starter_widgets_init()
  * Manually add scripts and styles on wp_head
  */
 add_action('wp_head', 'vws_starter_manual_scripts');
-function vws_starter_manual_scripts() {
+function vws_starter_manual_scripts()
+{
     ob_start(); ?>
 
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','GTM-MMBF99F');</script>
-    <!-- End Google Tag Manager -->
+    <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() ?>/dist/css/bootstrap.min.css"/>
 
-    <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() ?>/dist/css/bootstrap.min.css" />
-
-    <link href="<?php echo get_stylesheet_directory_uri() ?>/dist/css/singular.min.css" rel="stylesheet" />
+    <link href="<?php echo get_stylesheet_directory_uri() ?>/dist/css/singular.min.css" rel="stylesheet"/>
 
     <script defer src="<?php echo get_stylesheet_directory_uri() ?>/dist/js/base.min.js"></script>
     <?php if (is_singular() && comments_open() && get_option('thread_comments')): ?>
-        <script defer src="<?php echo includes_url() ?>js/comment-reply.min.js?ver=6.1.1"></script>
-    <?php endif; ?>
+    <script defer src="<?php echo includes_url() ?>js/comment-reply.min.js?ver=6.1.1"></script>
+<?php endif; ?>
     <script defer src="<?php echo get_stylesheet_directory_uri() ?>/dist/js/single.min.js"></script>
 
     <?php
@@ -149,7 +142,8 @@ function vws_starter_manual_scripts() {
  * WP Body Open Hook
  */
 add_action('wp_body_open', 'vws_starter_wp_body_open');
-function vws_starter_wp_body_open() {
+function vws_starter_wp_body_open()
+{
     ob_start(); ?>
     <?php
     echo ob_get_clean();
@@ -159,15 +153,9 @@ function vws_starter_wp_body_open() {
  * Hook to WP Footer.
  */
 add_action('wp_footer', 'vws_starter_wp_footer');
-function vws_starter_wp_footer() {
+function vws_starter_wp_footer()
+{
     ob_start(); ?>
-
-    <script>(function (w,d,s,v,odl){(w[v]=w[v]||{})['odl']=odl;
-            var f=d.getElementsByTagName(s)[0],j=d.createElement(s);j.async=true;
-            j.src='https://intaker.azureedge.net/widget/chat.min.js';
-            f.parentNode.insertBefore(j,f);
-        })(window, document, 'script','Intaker', 'hasbrookhasbrook');
-    </script>
 
     <!--<script type="text/javascript" id="load-chat-script">
         var mouseHandler = function(ev) {
@@ -177,7 +165,7 @@ function vws_starter_wp_footer() {
             chatScript.onload = function() {
                 console.log('Chat script loaded successfully.');
             }
-            chatScript.src = '<?php echo get_stylesheet_directory_uri() ?>/dist/js/zm-chat.min.js';
+            chatScript.src = '<?php echo get_stylesheet_directory_uri() ?>/dist/js/dynamic-script-sample.min.js';
             document.head.appendChild(chatScript);
         }
         document.body.addEventListener('mouseover', mouseHandler);
@@ -217,7 +205,7 @@ require get_template_directory() . '/inc/VWSBootstrapCommentWalker.php';
 /**
  * ACF Custom Settings
  */
-require get_template_directory() . '/inc/acf-settings.php';
+//require get_template_directory() . '/inc/acf-settings.php';
 
 /**
  * Load Custom Post Types
