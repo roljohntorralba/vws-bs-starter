@@ -133,26 +133,13 @@ function vws_starter_manual_scripts() {
 
     <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() ?>/dist/css/bootstrap.min.css" />
 
-    <?php if(is_front_page() || is_page_template('page-templates/template-landing-sections.php')) : ?>
-        <link href="<?php echo get_stylesheet_directory_uri() ?>/dist/css/front-page.min.css" rel="stylesheet" />
-        <link href="<?php echo get_stylesheet_directory_uri() ?>/dist/css/front-page-responsive.min.css" rel="stylesheet" media="orientation:portrait" />
-    <?php else: ?>
-        <link href="<?php echo get_stylesheet_directory_uri() ?>/dist/css/singular.min.css" rel="stylesheet" />
-
-        <?php if(is_page('contact-us')) : ?>
-            <link href="<?php echo get_stylesheet_directory_uri() ?>/dist/css/template-contact.min.css" rel="stylesheet" />
-        <?php endif; ?>
-    <?php endif; ?>
+    <link href="<?php echo get_stylesheet_directory_uri() ?>/dist/css/singular.min.css" rel="stylesheet" />
 
     <script defer src="<?php echo get_stylesheet_directory_uri() ?>/dist/js/base.min.js"></script>
-    <?php if(is_front_page() || is_page_template('page-templates/template-landing-sections.php')) : ?>
-        <script defer src="<?php echo get_stylesheet_directory_uri() ?>/dist/js/front-page.min.js"></script>
-    <?php else : ?>
-        <?php if (is_singular() && comments_open() && get_option('thread_comments')): ?>
-            <script defer src="<?php echo includes_url() ?>js/comment-reply.min.js?ver=6.1.1"></script>
-        <?php endif; ?>
-        <script defer src="<?php echo get_stylesheet_directory_uri() ?>/dist/js/single.min.js"></script>
+    <?php if (is_singular() && comments_open() && get_option('thread_comments')): ?>
+        <script defer src="<?php echo includes_url() ?>js/comment-reply.min.js?ver=6.1.1"></script>
     <?php endif; ?>
+    <script defer src="<?php echo get_stylesheet_directory_uri() ?>/dist/js/single.min.js"></script>
 
     <?php
     echo ob_get_clean();
@@ -164,16 +151,6 @@ function vws_starter_manual_scripts() {
 add_action('wp_body_open', 'vws_starter_wp_body_open');
 function vws_starter_wp_body_open() {
     ob_start(); ?>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MMBF99F" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-    <?php if(is_front_page() || is_page_template('page-templates/template-landing-sections.php')) : ?>
-        <picture class="d-none d-sm-block">
-            <source srcset="<?php echo esc_url(get_stylesheet_directory_uri() . '/dist/img/hero-bg-optimized.webp') ?>" type="image/webp">
-            <source srcset="<?php echo esc_url(get_stylesheet_directory_uri() . '/dist/img/hero-bg-optimized.jpg') ?>" type="image/jpeg">
-            <img class="home-bg" loading="lazy" src="<?php echo esc_url(get_stylesheet_directory_uri() . '/dist/img/hero-bg-optimized.jpg') ?>" alt="Oklahoma City skyline" width="1920" height="1024">
-        </picture>
-    <?php endif; ?>
     <?php
     echo ob_get_clean();
 }

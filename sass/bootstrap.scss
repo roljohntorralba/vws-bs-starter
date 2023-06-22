@@ -13,6 +13,9 @@ $enable-shadows: true;
 $prefix: "vws-";
 $display-font-weight: 700;
 $btn-font-weight: 700;
+$btn-padding-x: 1rem;
+$btn-padding-y: .5rem;
+$navbar-nav-link-padding-x: 1rem;
 
 $vws-btn-padding-y-xl: 1rem;
 $vws-btn-padding-x-xl: 2rem;
@@ -96,6 +99,7 @@ $theme-colors: (
 /*--------------------------------------------------------------
 # Overwrites and Global styles
 --------------------------------------------------------------*/
+
 ul, ol {
 	margin-top: 1rem;
 	margin-bottom: 1rem;
@@ -107,6 +111,10 @@ ul, ol {
 		padding-right: calc(var(--vws-gutter-x)*.5);
 		padding-left: calc(var(--vws-gutter-x)*.5);
 	}
+}
+
+.form-control {
+	padding: .5rem 1rem;
 }
 
 
@@ -141,33 +149,11 @@ ul, ol {
 	}
 }
 
-.styled-heading {
-	padding-bottom: 16px;
-	margin-bottom: 32px;
-	position: relative;
-	z-index: 2;
-
-	&::after {
-		content: '';
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		width: 100px;
-		height: 4px;
-		background: $warning;
-	}
-}
-
 .navbar-nav .dropdown-menu {
 	min-width: 300px;
 	.dropdown-item {
 		@extend .text-wrap;
 	}
-}
-
-.styled-heading-center::after {
-	left: 50%;
-	transform: translateX(-50%);
 }
 
 // Site Footer
@@ -274,9 +260,4 @@ p:last-of-type, p:last-child, p:empty {
 			@extend .btn-info;
 		}
 	}
-}
-
-.card-icon {
-	width: 80px;
-	margin-top: -40px;
 }

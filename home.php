@@ -23,7 +23,7 @@ get_header();
                 <?php
                 if (have_posts()) : ?>
 
-                    <div class="row g-3 row-cols-1 row-cols-sm-3 align-items-stretch">
+                    <div class="row g-4 row-cols-1 row-cols-sm-3 align-items-stretch">
                         <?php
                         /* Start the Loop */
                         while (have_posts()) :

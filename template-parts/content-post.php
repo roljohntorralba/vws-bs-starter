@@ -28,7 +28,6 @@
 
     <section class="entry-content mx-auto mb-6 ">
         <?php the_content(); ?>
-        <div class="text-center my-4"><a href="<?php echo esc_url(get_home_url(null, 'contact-us/')) ?>" class="btn btn-warning btn-lg">Get FREE Consultation</a></div>
         <?php
         wp_link_pages(
             array(

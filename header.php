@@ -25,10 +25,10 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'vws-bs-starter' ); ?></a>
 
-	<header id="masthead" class="site-header sticky-top">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm py-2">
+	<header id="masthead" class="site-header sticky-sm-top">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm py-3">
             <div class="container d-flex align-items-center justify-content-between">
-                <a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+                <a class="navbar-brand fs-45" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
                     <?php bloginfo('name') ?>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,7 +42,7 @@
                         'container' => false,
                         'menu_class' => '',
                         'fallback_cb' => '__return_false',
-                        'items_wrap' => '<ul id="%1$s" class="navbar-nav mx-auto mt-0 mb-2 mb-md-0 %2$s">%3$s</ul>',
+                        'items_wrap' => '<ul id="%1$s" class="navbar-nav ms-auto mt-0 mb-2 mb-md-0 %2$s">%3$s</ul>',
                         'depth' => 2,
                         'walker' => new \Valiant_Web\Bootstrap5NavWalker()
                     ));
