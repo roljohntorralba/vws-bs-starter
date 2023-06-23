@@ -5,11 +5,11 @@
  * Eventually, some of the functionality here could be replaced by core features.
  */
 
-if (!function_exists('vws_starter_entry_footer')) {
+if (!function_exists('vws_bs_starter_entry_footer')) {
     /**
      * Prints HTML with meta information for the current post-date/time.
      */
-    function vws_starter_posted_on()
+    function vws_bs_starter_posted_on()
     {
         $time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
         if (get_the_time('U') !== get_the_modified_time('U')) {
@@ -34,11 +34,11 @@ if (!function_exists('vws_starter_entry_footer')) {
     }
 }
 
-if (!function_exists('vws_starter_posted_by')) {
+if (!function_exists('vws_bs_starter_posted_by')) {
     /**
      * Prints HTML with meta information for the current author.
      */
-    function vws_starter_posted_by()
+    function vws_bs_starter_posted_by()
     {
         $byline = sprintf(
         /* translators: %s: post author. */
@@ -51,11 +51,11 @@ if (!function_exists('vws_starter_posted_by')) {
     }
 }
 
-if (!function_exists('vws_starter_entry_footer')) {
+if (!function_exists('vws_bs_starter_entry_footer')) {
     /**
      * Prints HTML with meta information for the categories, tags and comments.
      */
-    function vws_starter_entry_footer()
+    function vws_bs_starter_entry_footer()
     {
         // Hide category and tag text for pages.
         if ('post' === get_post_type()) {
@@ -94,7 +94,7 @@ if (!function_exists('vws_starter_entry_footer')) {
         }
 
         // Append page views span tag.
-        vws_get_page_views();
+        vws_bs_starter_get_page_views();
 
         edit_post_link(
             sprintf(
@@ -115,14 +115,14 @@ if (!function_exists('vws_starter_entry_footer')) {
     }
 }
 
-if (!function_exists('vws_starter_post_thumbnail')) {
+if (!function_exists('vws_bs_starter_post_thumbnail')) {
     /**
      * Displays an optional post thumbnail.
      *
      * Wraps the post thumbnail in an anchor element on index views, or a div
      * element when on single views.
      */
-    function vws_starter_post_thumbnail($class = '')
+    function vws_bs_starter_post_thumbnail($class = '')
     {
         if (post_password_required() || is_attachment() || !has_post_thumbnail()) {
             return;
@@ -172,8 +172,8 @@ if (!function_exists('wp_body_open')) {
     }
 }
 
-if (!function_exists('vws_record_page_view')) {
-    function vws_record_page_view($post_id = null)
+if (!function_exists('vws_bs_starter_record_page_view')) {
+    function vws_bs_starter_record_page_view($post_id = null)
     {
         // Only record for guest users.
         if (!is_user_logged_in()) {
@@ -182,8 +182,8 @@ if (!function_exists('vws_record_page_view')) {
     }
 }
 
-if (!function_exists('vws_get_page_views')) {
-    function vws_get_page_views($post_id = null, $label = 'Page Views: ')
+if (!function_exists('vws_bs_starter_get_page_views')) {
+    function vws_bs_starter_get_page_views($post_id = null, $label = 'Page Views: ')
     {
         printf('<span class="page-views">%s%s</span>', $label, (int)get_post_meta($post_id ? $post_id : get_the_ID(), '_vws_page_views', true));
     }

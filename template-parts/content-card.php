@@ -11,7 +11,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class('col'); ?>>
     <div class="card h-100">
-        <?php vws_starter_post_thumbnail('card-img-top'); ?>
+        <?php vws_bs_starter_post_thumbnail('card-img-top'); ?>
         <div class="card-body">
             <header class="entry-header mb-2">
                 <?php
@@ -21,8 +21,8 @@
                     ?>
                     <div class="entry-meta small text-muted">
                         <?php
-                        vws_starter_posted_on();
-                        vws_starter_posted_by();
+                        vws_bs_starter_posted_on();
+                        vws_bs_starter_posted_by();
                         ?>
                     </div><!-- .entry-meta -->
                 <?php endif; ?>
@@ -42,7 +42,7 @@
             </section><!-- .entry-content -->
 
             <footer class="entry-footer small text-muted vstack">
-                <?php vws_starter_entry_footer(); ?>
+                <?php vws_bs_starter_entry_footer(); ?>
             </footer><!-- .entry-footer -->
         </div>
     </div>

@@ -19,8 +19,8 @@ if (!defined('_S_VERSION')) {
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support for post thumbnails.
  */
-add_action('after_setup_theme', 'vws_starter_setup');
-function vws_starter_setup()
+add_action('after_setup_theme', 'vws_bs_starter_setup');
+function vws_bs_starter_setup()
 {
     // Add default posts and comments RSS feed links to head.
     add_theme_support('automatic-feed-links');
@@ -80,10 +80,10 @@ function vws_starter_setup()
  *
  * @global int $content_width
  */
-add_action('after_setup_theme', 'vws_starter_content_width', 0);
-function vws_starter_content_width()
+add_action('after_setup_theme', 'vws_bs_starter_content_width', 0);
+function vws_bs_starter_content_width()
 {
-    $GLOBALS['content_width'] = apply_filters('vws_starter_content_width', 640);
+    $GLOBALS['content_width'] = apply_filters('vws_bs_starter_content_width', 640);
 }
 
 /**
@@ -91,8 +91,8 @@ function vws_starter_content_width()
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
-add_action('widgets_init', 'vws_starter_widgets_init');
-function vws_starter_widgets_init()
+add_action('widgets_init', 'vws_bs_starter_widgets_init');
+function vws_bs_starter_widgets_init()
 {
     register_sidebar(
         array(
@@ -119,8 +119,8 @@ function vws_starter_widgets_init()
 /**
  * Manually add scripts and styles on wp_head
  */
-add_action('wp_head', 'vws_starter_manual_scripts');
-function vws_starter_manual_scripts()
+add_action('wp_head', 'vws_bs_starter_manual_scripts');
+function vws_bs_starter_manual_scripts()
 {
     ob_start(); ?>
 
@@ -141,8 +141,8 @@ function vws_starter_manual_scripts()
 /**
  * WP Body Open Hook
  */
-add_action('wp_body_open', 'vws_starter_wp_body_open');
-function vws_starter_wp_body_open()
+add_action('wp_body_open', 'vws_bs_starter_wp_body_open');
+function vws_bs_starter_wp_body_open()
 {
     ob_start(); ?>
     <?php
@@ -152,8 +152,8 @@ function vws_starter_wp_body_open()
 /**
  * Hook to WP Footer.
  */
-add_action('wp_footer', 'vws_starter_wp_footer');
-function vws_starter_wp_footer()
+add_action('wp_footer', 'vws_bs_starter_wp_footer');
+function vws_bs_starter_wp_footer()
 {
     ob_start(); ?>
 
@@ -201,13 +201,3 @@ require get_template_directory() . '/inc/Bootstrap5NavWalker.php';
  * Add Comment Walker
  */
 require get_template_directory() . '/inc/VWSBootstrapCommentWalker.php';
-
-/**
- * ACF Custom Settings
- */
-//require get_template_directory() . '/inc/acf-settings.php';
-
-/**
- * Load Custom Post Types
- */
-//require get_template_directory() . '/inc/custom-post-types.php';

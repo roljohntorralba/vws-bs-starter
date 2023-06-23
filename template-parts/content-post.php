@@ -14,11 +14,11 @@
         <?php the_title('<h1 class="entry-title display-5 mb-3 styled-heading">', '</h1>'); ?>
         <div class="entry-meta small text-muted mb-4">
             <?php
-            vws_starter_posted_on();
-            vws_starter_posted_by();
+            vws_bs_starter_posted_on();
+            vws_bs_starter_posted_by();
             ?>
         </div><!-- .entry-meta -->
-        <?php vws_starter_post_thumbnail('shadow'); ?>
+        <?php vws_bs_starter_post_thumbnail('shadow'); ?>
     </header><!-- .entry-header -->
 
     <?php get_template_part('template-parts/widgets/page-toc') ?>
@@ -38,8 +38,8 @@
     <footer class="entry-footer">
         <div class="small text-muted hstack justify-content-between mb-4">
             <?php
-            vws_record_page_view();
-            vws_starter_entry_footer();
+            vws_bs_starter_record_page_view();
+            vws_bs_starter_entry_footer();
             ?>
         </div>
     </footer>

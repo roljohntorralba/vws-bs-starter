@@ -12,7 +12,7 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class('mx-auto'); ?>>
     <header class="entry-header mb-4">
         <?php the_title('<h1 class="entry-title display-5 mb-4 styled-heading">', '</h1>'); ?>
-        <?php vws_starter_post_thumbnail('shadow'); ?>
+        <?php vws_bs_starter_post_thumbnail('shadow'); ?>
     </header><!-- .entry-header -->
 
     <?php get_template_part('template-parts/widgets/page-toc') ?>
@@ -33,8 +33,8 @@
     <footer class="entry-footer">
         <div class="text-muted small">
             <?php
-            vws_record_page_view();
-            vws_get_page_views();
+            vws_bs_starter_record_page_view();
+            vws_bs_starter_get_page_views();
             ?>
         </div>
     </footer>

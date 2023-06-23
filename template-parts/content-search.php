@@ -16,20 +16,20 @@
 		<?php if ( 'post' === get_post_type() ) : ?>
 		<div class="entry-meta">
 			<?php
-			vws_starter_posted_on();
-			vws_starter_posted_by();
+			vws_bs_starter_posted_on();
+			vws_bs_starter_posted_by();
 			?>
 		</div><!-- .entry-meta -->
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
-	<?php vws_starter_post_thumbnail(); ?>
+	<?php vws_bs_starter_post_thumbnail(); ?>
 
 	<section class="entry-summary mx-auto">
 		<?php the_excerpt(); ?>
 	</section><!-- .entry-summary -->
 
 	<footer class="entry-footer mt-4">
-		<?php vws_starter_entry_footer(); ?>
+		<?php vws_bs_starter_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->
