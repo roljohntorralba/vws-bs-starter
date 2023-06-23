@@ -8,9 +8,9 @@
         'order' => 'DESC'
     ]);
     if($popular_posts->have_posts()): ?>
-        <div class="list-group">
+        <div class="list-group list-group-flush">
             <?php while ($popular_posts->have_posts()) : $popular_posts->the_post(); ?>
-                <a href="<?php the_permalink() ?>" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center link-primary">
+                <a href="<?php the_permalink() ?>" class="list-group-item list-group-item-action px-0 d-flex justify-content-between align-items-center link-primary">
                     <div>
                         <h3 class="my-1 fw-bold fs-6" title="<?php the_title() ?>"><?php the_title(); ?></h3>
                         <div class="text-muted small">

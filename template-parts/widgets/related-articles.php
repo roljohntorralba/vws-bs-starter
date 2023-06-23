@@ -14,7 +14,7 @@ if ( ! empty( $categories ) ) : ?>
     <div class="list-group list-group-flush">
     <?php while ($cat_query->have_posts()) : $cat_query->the_post(); ?>
         <a href="<?php the_permalink() ?>" title="<?php the_title(); ?>" class="list-group-item list-group-item-action link-primary px-0">
-            <h3 class="fs-6 fw-semibold mb-0" title="<?php the_title() ?>"><?php the_title(); ?></h3>
+            <h3 class="fs-6 fw-semibold my-1" title="<?php the_title() ?>"><?php the_title(); ?></h3>
             <div class="text-muted hstack small">
                 <time datetime="<?php echo get_the_modified_date('c'); ?>" itemprop="datePublished"><?php echo get_the_modified_date(); ?></time>
             </div>
