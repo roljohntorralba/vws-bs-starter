@@ -38,7 +38,6 @@
     <footer class="entry-footer">
         <div class="small text-muted hstack justify-content-between mb-4">
             <?php
-            vws_bs_starter_record_page_view();
             vws_bs_starter_entry_footer();
             ?>
         </div>

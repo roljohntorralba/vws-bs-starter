@@ -116,6 +116,19 @@ function vws_bs_starter_widgets_init()
     ));
 }
 
+add_action('wp_enqueue_scripts', 'vws_bs_starter_register_styles_scripts');
+function vws_bs_starter_register_styles_scripts() {
+    wp_enqueue_script('vws-page-view-js', get_template_directory_uri() . '/js/pageViews.min.js', array(), '1.0.0', false);
+    wp_localize_script(
+        'vws-page-view-js',
+        'postdata',
+        [
+            'vws_rest_url'      => rest_url( 'vws/v1/' ),
+            'post_id'           => get_the_ID()
+        ]
+    );
+}
+
 /**
  * Manually add scripts and styles on wp_head
  */
@@ -130,8 +143,8 @@ function vws_bs_starter_manual_scripts()
 
     <script defer src="<?php echo get_stylesheet_directory_uri() ?>/dist/js/base.min.js"></script>
     <?php if (is_singular() && comments_open() && get_option('thread_comments')): ?>
-    <script defer src="<?php echo includes_url() ?>js/comment-reply.min.js?ver=6.1.1"></script>
-<?php endif; ?>
+        <script defer src="<?php echo includes_url() ?>js/comment-reply.min.js?ver=6.1.1"></script>
+    <?php endif; ?>
     <script defer src="<?php echo get_stylesheet_directory_uri() ?>/dist/js/single.min.js"></script>
 
     <?php

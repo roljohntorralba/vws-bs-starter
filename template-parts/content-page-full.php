@@ -28,7 +28,6 @@
     <footer class="entry-footer mt-4">
         <div class="text-muted small">
             <?php
-            vws_bs_starter_record_page_view();
             vws_bs_starter_get_page_views();
             ?>
         </div>

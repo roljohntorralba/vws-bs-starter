@@ -172,13 +172,49 @@ if (!function_exists('wp_body_open')) {
     }
 }
 
-if (!function_exists('vws_bs_starter_record_page_view')) {
-    function vws_bs_starter_record_page_view($post_id = null)
+/**
+ * Creates a new REST API entry point for page views.
+ */
+if(!function_exists('vws_bs_starter_add_page_view')) {
+    add_action('rest_api_init', function () {
+        register_rest_route('vws/v1', '/pageview/(?P<id>\d+)', [
+            'methods' => ['POST'],
+            'callback' => 'vws_bs_starter_add_page_view',
+            'permission_callback' => '__return_true',
+            'args' => [
+                'id' => [
+                    'validate_callback' => function ($param, $request, $key) {
+                        return is_numeric($param);
+                    }
+                ]
+            ]
+        ]);
+    });
+    function vws_bs_starter_add_page_view(WP_REST_Request $request)
     {
-        // Only record for guest users.
-        if (!is_user_logged_in()) {
-            update_post_meta($post_id ? $post_id : get_the_ID(), '_vws_page_views', (int)get_post_meta($post_id ? $post_id : get_the_ID(), '_vws_page_views', true) + 1);
+        $post_id = $request['id'];
+
+        $args = [
+            'p' => $post_id,
+            'post_type' => ['page', 'post']
+        ];
+        $post = new WP_Query($args);
+
+        if (!$post->have_posts()) {
+            return new WP_Error('vws_request_error', 'No posts found with the given ID', array('status' => 404));
         }
+
+        $prev_value = (int)get_post_meta($post->post->ID, '_vws_page_views', true);
+        $is_updated = update_post_meta($post->post->ID, '_vws_page_views', $prev_value + 1);
+
+        $response['post_id'] = $post->post->ID;
+        $response['post_title'] = $post->post->post_title;
+        $response['is_updated'] = $is_updated;
+        $response['prev_value'] = $prev_value;
+        $response['current_value'] = get_post_meta($post->post->ID, '_vws_page_views', true);
+
+        $res = new WP_REST_Response($response);
+        return ['request' => $res];
     }
 }
 
